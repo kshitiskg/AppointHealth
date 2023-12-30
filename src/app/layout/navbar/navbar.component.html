@@ -1,0 +1,88 @@
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a routerLink="index.html"><span class="fw-bold fs-2" style="color: blue;">A</span>ppoint <span class="fw-bold fs-2" style="color: blue;">H</span>ealth</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a routerLink="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " routerLink="home">Home</a></li>
+          <li><a class="nav-link scrollto" routerLink="patient">Patient Registration</a></li>
+          <li><a class="nav-link scrollto" routerLink="appoinment">Appointment</a></li>
+          <li><a class="nav-link scrollto" routerLink="dashboard">Dashboard</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a routerLink="appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a routerLink="appointment" class="appointment-btn scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="d-none d-md-inline">Login</span> </a>
+
+      
+      
+    </div>
+  </header><!-- End Header -->
+  <router-outlet></router-outlet>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+        
+
+          <section class="vh-100 w-100" style="background-color: #508bfc;">
+            <div class="container  ">
+              <div class="row  h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                  <div class="card shadow-2-strong " style="border-radius: 1rem; width: 450px;">
+                    <div class="card-body">
+          
+                      <h3 class="mb-5">Sign in</h3>
+          
+                      <div class="form-outline mb-4">
+                        <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX-2" [(ngModel)]="loginObj.username">Email</label>
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX-2" [(ngModel)]="loginObj.username">Password</label>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <section>
+                          <option value="">Select Role</option>
+                          <option value="doctor">Doctor</option>
+                          <option value="patient">Patient</option>
+
+                        </section>
+                        <label class="form-label" for="typePasswordX-2" [(ngModel)]="loginObj.username">Password</label>
+                      </div>  
+          
+                      <button type="submit" class="btn btn-primary btn-md btn-block rounded-5" (click)="login()">Login</button>
+                     <button type="button" class="btn btn-secondary mx-2 rounded-5" data-bs-dismiss="modal">Close</button>
+          
+                      
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+      
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,126 @@
+<!-- ======= Patient Section ======= -->
+<section id="appointment" class="appointment section-bg" *ngIf="patientList == false">
+    <div class="container">
+
+        <div class="section-title pb-0 ">
+            <h2 class="mb-0" *ngIf="patientList == false">Patient Registration</h2>
+
+        </div>
+        <div class=" text-end mb-3 php-email-form"><button type="submit" (click)="patientList = !patientList">Show All
+                Patient</button></div>
+
+
+
+        <form method="post" role="form" class="php-email-form">
+            <div class="row mb-2">
+                <div class="col-md-4 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                        [(ngModel)]="patientObj.name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="number" id="email" placeholder="Your number"
+                        [(ngModel)]="patientObj.mobileNo" data-rule="email" data-msg="Please enter a valid email">
+                    
+                </div>
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="city" id="phone" placeholder="Your city"
+                        [(ngModel)]="patientObj.city" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="age" id="age" placeholder="Your age"
+                        [(ngModel)]="patientObj.age">
+                    
+                </div>
+                <div class="col-md-4   mt-md-0 ">
+                    <input type="text" name="gender" class="form-control" id="name" placeholder="Enter Gender Male/Female"
+                        [(ngModel)]="patientObj.gender" >
+                    
+                    <!-- <div class="form-check mt-2">
+                        <input class="form-check-input mx-2" type="radio" name="gridRadios" 
+                            value="Male" style="
+              border-radius: 10px; height: 0px;" [(ngModel)]="patientObj.gender">
+                        <label class="form-check-label" for="gridRadios1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check mt-2">
+                        <input class="form-check-input mx-2" type="radio" name="gridRadios" 
+                            value="Female" style="
+              border-radius: 10px;height: 0px;" [(ngModel)]="patientObj.gender">
+                        <label class="form-check-label" for="gridRadios2">
+                            Female
+
+                        </label>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mt-5"><button type="submit" *ngIf="patientObj.patientId == 0" (click)="patientRegister()">Register</button>
+                    </div>
+                    <div class="text-center mt-5"><button type="submit" *ngIf="patientObj.patientId != 0" (click)="UpdatePatient()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section><!-- End Patient Section -->
+
+<!-- =========== List Patient ============== -->
+<section class="section-bg appointment mb-5 " *ngIf="patientList == true">
+    <div class="container ">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title ">
+                    <h2 class="mb-0">Patient List</h2>
+                </div>
+                <div class=" text-end mb-3 php-email-form"><button type="submit" (click)="patientList = !patientList">Back To Registration</button></div>
+            </div>
+            <div class="col-12 ">
+                <table class="table table-hover table-primary">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Action</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let patient of patientArray ;let sr =index">
+                            <th scope="row">{{sr+1}}</th>
+                            <td>{{patient.name}}</td>
+                            <td>{{patient.mobileNo}}</td>
+                            <td>{{patient.city}}</td>
+                            <td>{{patient.age}}</td>
+                            <td>{{patient.gender}}</td>
+                            <td>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <button class="btn btn-primary rounded-5 mx-2" type="button" (click)="edit(patient.patientId)">Edit</button>
+                                    <button class="btn btn-danger rounded-5" type="button" (click)="deletePatient(patient.patientId)">Delete</button>
+                                  </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+       
+    </div>
+</section>
+<!-- =========== end List Patient ============== -->

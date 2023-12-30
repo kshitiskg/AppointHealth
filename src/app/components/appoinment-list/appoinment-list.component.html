@@ -1,0 +1,55 @@
+<section id="appointment" class="appointment section-bg">
+    <div class="container-fluid ">
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="section-title pb-0 ">
+                    <h2 class="mb-0">Appointment List</h2>
+
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="text-end  php-email-form">
+                    <button class="me-2" type="submit" (click)="getAllAppoinment()" >All Appointment's</button>
+                    <button type="submit" (click)="todayAppoinment()">Today's Appoinment</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row ">
+            <div class="col-3 mb-3" *ngFor=" let appoin of appoinmentArray">
+                <div class="card p-3  shadow  h-100 border-0">
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Name : {{appoin.name}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex">
+                                <div class=" rounded-circle card_cricle_id">
+                                    <span class="fw-bold fs-5" style="color: blue;">{{appoin.appointmentNo}}</span>
+                                </div>
+                                <div class="mt-2 ms-3">
+                                    <p class="m-0">+91 {{appoin.mobileNo}}</p>
+                                    <p class="p-0 m-0 text-muted">{{appoin.appointmentDate | date
+                                        :'dd-MMM-YYYY'}} || {{appoin.appointmentTime}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-end mt-2">
+                                <button type="button" class="btn btn-sm btn-success" *ngIf="appoin.isDone">
+                                    Done</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" *ngIf="!appoin.isDone" (click)="markdoneAppoinment(appoin.appointmentId)">Mark
+                                        Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
